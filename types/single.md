@@ -16,7 +16,7 @@
 * **Status**: `200 OK`
 * **Response Body**:
 
-```json
+```yaml
 {
     "type": {
         "id": string,
