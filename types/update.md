@@ -11,7 +11,7 @@
 * **Query Parameters**: None
 * **Request Body**:
 
-```json
+```yaml
 {
     "type": {
         "title": string, // Title. Optional
@@ -21,7 +21,7 @@
 ```
 
 * **Sample Request Body**:
-```json
+```yaml
 {
     "type": {
         "title": "Oracle Database",

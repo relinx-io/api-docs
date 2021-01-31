@@ -16,7 +16,7 @@
 * **Status**: `200 OK`
 * **Response Body**:
 
-```json
+```yaml
 {
     "item": {
         "id": string, // Item ID
@@ -108,7 +108,7 @@
 
 * **Sample Response Body**:
 
-```json
+```yaml
 {
     "item": {
         "id": "Fz8w_OObG",

@@ -18,7 +18,7 @@
 * **Status**: `200 OK`
 * **Response Body**:
 
-```json
+```yaml
 {
     "properties": [
         {
@@ -41,7 +41,7 @@
 
 * **Sample Response Body**:
 
-```json
+```yaml
 {
     "properties": [
         {

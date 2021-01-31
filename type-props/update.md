@@ -11,7 +11,7 @@
 * **Query Parameters**: None
 * **Request Body**:
 
-```json
+```yaml
 {
     "typeProp": {
         "typeId": string, // Type ID. Optional
@@ -22,7 +22,7 @@
 ```
 
 * **Sample Request Body**:
-```json
+```yaml
 {
     "typeProp": {
         "typeId": "RPoiDeFc6",

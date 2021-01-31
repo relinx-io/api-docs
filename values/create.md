@@ -9,7 +9,7 @@
 * **Request Parameters**: None
 * **Query Parameters**: None
 * **Request Body**:
-```json
+```yaml
 {
     "value": {
         "itemId": string, // Item ID. Required
@@ -20,7 +20,7 @@
 ```
 
 * **Sample Request Body**:
-```json
+```yaml
 {
     "value": {
         "itemId": "2Ezv8qpXi",
@@ -34,7 +34,7 @@
 * **Status**: `200 OK`
 * **Response Body**:
 
-```json
+```yaml
 {
     "value": {
         "id": string
@@ -44,7 +44,7 @@
 
 * **Sample Response Body**:
 
-```json
+```yaml
 {
     "value": {
         "id": "oLldi0PVH"

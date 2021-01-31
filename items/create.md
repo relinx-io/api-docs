@@ -9,7 +9,7 @@
 * **Request Parameters**: None
 * **Query Parameters**: None
 * **Request Body**:
-```json
+```yaml
 {
     "item": {
         "title": string, // Title. Required
@@ -21,7 +21,7 @@
 ```
 
 * **Sample Request Body**:
-```json
+```yaml
 {
     "item": {
         "title": "Production Database",
@@ -36,7 +36,7 @@
 * **Status**: `200 OK`
 * **Response Body**:
 
-```json
+```yaml
 {
     "item": {
         "id": string
@@ -46,7 +46,7 @@
 
 * **Sample Response Body**:
 
-```json
+```yaml
 {
     "item": {
         "id": "oLldi0PVH"

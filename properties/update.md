@@ -10,7 +10,7 @@
     * `propertyId`: Property ID
 * **Query Parameters**: None
 * **Request Body**:
-```json
+```yaml
 {
     "property": {
         "title": string, // Title. Optional
@@ -28,7 +28,7 @@
 ```
 
 * **Sample Request Body**:
-```json
+```yaml
 {
     "property": {
         "title": "IP",

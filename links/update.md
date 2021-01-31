@@ -10,7 +10,7 @@
     * `linkId`: Link ID
 * **Query Parameters**: None
 * **Request Body**:
-```json
+```yaml
 {
     "link": { // Link between two Items (i.e. A -> B)
         "item1Id": string, // First side of Link (i.e. side A). Optional
@@ -22,7 +22,7 @@
 ```
 
 * **Sample Request Body**:
-```json
+```yaml
 {
     "link": {
         "item1Id": "1RaLD8UVv",

@@ -11,7 +11,7 @@
 * **Query Parameters**: None
 * **Request Body**:
 
-```json
+```yaml
 {
     "value": {
         "itemId": string, // Item ID. Optional
@@ -22,7 +22,7 @@
 ```
 
 * **Sample Request Body**:
-```json
+```yaml
 {
     "value": {
         "itemId": "XogKr3aya",

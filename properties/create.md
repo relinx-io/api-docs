@@ -9,7 +9,7 @@
 * **Request Parameters**: None
 * **Query Parameters**: None
 * **Request Body**:
-```json
+```yaml
 {
     "property": {
         "title": string, // Title. Required
@@ -27,7 +27,7 @@
 ```
 
 * **Sample Request Body**:
-```json
+```yaml
 {
     "property": {
         "title": "Vendor",
@@ -45,7 +45,7 @@
 * **Status**: `200 OK`
 * **Response Body**:
 
-```json
+```yaml
 {
     "property": {
         "id": string
@@ -55,7 +55,7 @@
 
 * **Sample Response Body**:
 
-```json
+```yaml
 {
     "property": {
         "id": "oLldi0PVH"

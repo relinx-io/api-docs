@@ -11,7 +11,7 @@
 * **Query Parameters**: None
 * **Request Body**:
 
-```json
+```yaml
 {
     "relation": {
         "activeVerb": string, // Active verb. Optional
@@ -22,7 +22,7 @@
 ```
 
 * **Sample Request Body**:
-```json
+```yaml
 {
 	"relation": {
 		"activeVerb": "Owns",

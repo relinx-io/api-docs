@@ -11,7 +11,7 @@
 * **Query Parameters**: None
 * **Request Body**:
 
-```json
+```yaml
 {
     "item": {
         "title": string, // Title. Optional
@@ -23,7 +23,7 @@
 ```
 
 * **Sample Request Body**:
-```json
+```yaml
 {
     "item": {
         "title": "Production Database",

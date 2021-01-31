@@ -9,7 +9,7 @@
 * **Request Parameters**: None
 * **Query Parameters**: None
 * **Request Body**:
-```json
+```yaml
 {
     "typeLink": { // Link between Types (e.g. A -> B). Self-references are allowed
         "relationId": string, // Relation ID. Required
@@ -22,7 +22,7 @@
 ```
 
 * **Sample Request Body**:
-```json
+```yaml
 {
     "typeLink": {
         "relationId": "w5vt9Ud76",
@@ -38,7 +38,7 @@
 * **Status**: `200 OK`
 * **Response Body**:
 
-```json
+```yaml
 {
     "typeLink": {
         "id": string
@@ -48,7 +48,7 @@
 
 * **Sample Response Body**:
 
-```json
+```yaml
 {
     "typeLink": {
         "id": "oLldi0PVH"

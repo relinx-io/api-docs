@@ -9,7 +9,7 @@
 * **Request Parameters**: None
 * **Query Parameters**: None
 * **Request Body**:
-```json
+```yaml
 {
     "link": { // Link between two Items (i.e. A -> B)
         "item1Id": string, // First side of Link (i.e. side A). Required
@@ -20,7 +20,7 @@
 ```
 
 * **Sample Request Body**:
-```json
+```yaml
 {
     "link": {
         "item1Id": "1RaLD8UVv",
@@ -34,7 +34,7 @@
 * **Status**: `200 OK`
 * **Response Body**:
 
-```json
+```yaml
 {
     "link": {
         "id": string
@@ -44,7 +44,7 @@
 
 * **Sample Response Body**:
 
-```json
+```yaml
 {
     "link": {
         "id": "oLldi0PVH"

@@ -9,7 +9,7 @@
 * **Request Parameters**: None
 * **Query Parameters**: None
 * **Request Body**:
-```json
+```yaml
 {
     "relation": {
         "activeVerb": string, // Active verb. Required
@@ -20,7 +20,7 @@
 ```
 
 * **Sample Request Body**:
-```json
+```yaml
 {
     "relation": {
         "activeVerb": "Uses",
@@ -34,7 +34,7 @@
 * **Status**: `200 OK`
 * **Response Body**:
 
-```json
+```yaml
 {
     "relation": {
         "id": string
@@ -44,7 +44,7 @@
 
 * **Sample Response Body**:
 
-```json
+```yaml
 {
     "relation": {
         "id": "oLldi0PVH"

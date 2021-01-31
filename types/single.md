@@ -58,7 +58,7 @@
 
 * **Sample Response Body**:
 
-```json
+```yaml
 {
     "type": {
         "id": "yXnCWkUrN",

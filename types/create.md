@@ -10,7 +10,7 @@
 * **Query Parameters**: None
 * **Request Body**:
 
-```json
+```yaml
 {
     "type": {
         "title": string, // Title. Required
@@ -20,7 +20,7 @@
 ```
 
 * **Sample Request Body**:
-```json
+```yaml
 {
     "type": {
         "title": "Virtual Machine",
@@ -33,7 +33,7 @@
 * **Status**: `200 OK`
 * **Response Body**:
 
-```json
+```yaml
 {
     "type": {
         "id": string
@@ -43,7 +43,7 @@
 
 * **Sample Response Body**:
 
-```json
+```yaml
 {
     "type": {
         "id": "oLldi0PVH"

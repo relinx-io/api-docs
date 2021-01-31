@@ -10,7 +10,7 @@
     * `typeLinkId`: TypeLink ID
 * **Query Parameters**: None
 * **Request Body**:
-```json
+```yaml
 {
     "typeLink": { // Link between Types (e.g. A -> B)
         "relationId": string, // Relation ID. Optional
@@ -23,7 +23,7 @@
 ```
 
 * **Sample Request Body**:
-```json
+```yaml
 {
     "typeLink": {
         "relationId": "u_tgpRd7p",

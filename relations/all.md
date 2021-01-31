@@ -18,7 +18,7 @@
 * **Status**: `200 OK`
 * **Response Body**:
 
-```json
+```yaml
 {
     "relations": [
         {
@@ -35,7 +35,7 @@
 
 * **Sample Response Body**:
 
-```json
+```yaml
 {
     "relations": [
         {

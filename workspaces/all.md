@@ -16,7 +16,7 @@ Lists all Workspaces you own or are shared with you.
 * **Status**: `200 OK`
 * **Response Body**:
 
-```json
+```yaml
 {
     "workspaces": [
         {
@@ -34,7 +34,7 @@ Lists all Workspaces you own or are shared with you.
 
 * **Sample Response Body**:
 
-```json
+```yaml
 {
     "workspaces": [
         {
