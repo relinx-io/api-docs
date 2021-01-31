@@ -22,10 +22,10 @@ To use this API please register at [Relinx](https://relinx.io) and add an API Ke
 * Consider watching (and starring 😉) this repo to get notified on changes and addition of new APIs
 
 ## Usage
-* Base URL to prefix all URLs in this documentaion is [https://api.relinx.io](https://api.relinx.io)
+* Base URL to prefix all URLs in this documentation is [https://api.relinx.io](https://api.relinx.io)
 * All APIs starting with the `/auth` prefix require the `Authorization` header to be set to "`ApiKey YOUR_API_KEY`"
 * Nearly all APIs require `workspaceId` custom header to be set to the current Workspace ID. See [Get All Workspaces](workspaces/all) to get Workspace ID
-* Common constants used by APIs are described in [CONSTANTS](CONSTANTS)
+* Common constants used by APIs are described in [CONSTANTS](CONSTANTS.md)
 * Unless stated otherwise all `PUT` requests behave like `PATCH`, i.e. update only fields present in the request body and leave other fields intact
 * `DELETE` operations are permanent, though the log is retained.
 
