@@ -1,0 +1,2010 @@
+{
+	"info": {
+		"_postman_id": "effa508c-1056-45e4-9bc0-360ba62c2666",
+		"name": "Relinx",
+		"description": "Relinx API Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Workspaces",
+			"item": [
+				{
+					"name": "Get All Workspaces",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "ApiKey {{apiKey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{API_URL_V1}}/workspaces",
+							"host": [
+								"{{API_URL_V1}}"
+							],
+							"path": [
+								"workspaces"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Properties",
+			"item": [
+				{
+					"name": "Create Property",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var responseJSON = JSON.parse(responseBody);\r",
+									"\r",
+									"tests['Response contains \"property\" property'] = responseJSON.hasOwnProperty('property');\r",
+									"\r",
+									"var property = responseJSON.property || {};\r",
+									"\r",
+									"tests['property has \"id\" property'] = property.hasOwnProperty('id');\r",
+									"\r",
+									"if (tests['property has \"id\" property']) {\r",
+									"    pm.environment.set('propertyId', property.id);\r",
+									"}\r",
+									"\r",
+									"tests['Global variable \"propertyId\" has been set'] = pm.environment.get('propertyId') === property.id;\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "workspaceId",
+								"value": "{{workspaceId}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "ApiKey {{apiKey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"property\": {\n        \"title\": \"Vendor\",\n        \"dataType\": 1\n    }\n}"
+						},
+						"url": {
+							"raw": "{{API_URL_V1}}/properties",
+							"host": [
+								"{{API_URL_V1}}"
+							],
+							"path": [
+								"properties"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Properties",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "workspaceId",
+								"value": "{{workspaceId}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "ApiKey {{apiKey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{API_URL_V1}}/properties?pageNo=0&pageSize=10",
+							"host": [
+								"{{API_URL_V1}}"
+							],
+							"path": [
+								"properties"
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": "v",
+									"disabled": true
+								},
+								{
+									"key": "pageNo",
+									"value": "0"
+								},
+								{
+									"key": "pageSize",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Property",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "workspaceId",
+								"value": "{{workspaceId}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "ApiKey {{apiKey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"property\": {\n\t\t\"title\": \"Vendor\",\n\t\t\"note\": \"Software/Hardware vendors\",\n\t\t\"dataType\": 5,\n\t\t\"list\": [\n            {\n                \"id\": \"ms\",\n                \"title\": \"Microsoft\"\n            },\n            {\n                \"id\": \"rnx\",\n                \"title\": \"Relinx\"\n            }\n        ]\n\t}\n}"
+						},
+						"url": {
+							"raw": "{{API_URL_V1}}/properties/{{propertyId}}",
+							"host": [
+								"{{API_URL_V1}}"
+							],
+							"path": [
+								"properties",
+								"{{propertyId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Relations",
+			"item": [
+				{
+					"name": "Create Relation",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var responseJSON = JSON.parse(responseBody);\r",
+									"\r",
+									"tests['Response contains \"relation\" property'] = responseJSON.hasOwnProperty('relation');\r",
+									"\r",
+									"var relation = responseJSON.relation || {};\r",
+									"\r",
+									"tests['relation has \"id\" property'] = relation.hasOwnProperty('id');\r",
+									"\r",
+									"if(tests['relation has \"id\" property']){\r",
+									"    pm.environment.set('relationId', relation.id);\r",
+									"}\r",
+									"\r",
+									"tests['Global variable \"relationId\" has been set'] = pm.environment.get('relationId') === relation.id;\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "workspaceId",
+								"value": "{{workspaceId}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "ApiKey {{apiKey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"relation\": {\n        \"activeVerb\": \"Uses\",\n        \"passiveVerb\": \"Used by\",\n        \"note\": \"note\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{API_URL_V1}}/relations",
+							"host": [
+								"{{API_URL_V1}}"
+							],
+							"path": [
+								"relations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Relations",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "workspaceId",
+								"value": "{{workspaceId}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "ApiKey {{apiKey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{API_URL_V1}}/relations?pageNo=0&pageSize=10",
+							"host": [
+								"{{API_URL_V1}}"
+							],
+							"path": [
+								"relations"
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": "us",
+									"disabled": true
+								},
+								{
+									"key": "pageNo",
+									"value": "0"
+								},
+								{
+									"key": "pageSize",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Relation",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "workspaceId",
+								"value": "{{workspaceId}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "ApiKey {{apiKey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"relation\": {\n\t\t\"activeVerb\": \"Owns2\",\n\t\t\"passiveVerb\": \"Owned by2\",\n\t\t\"note\": \"\"\n\t}\n}"
+						},
+						"url": {
+							"raw": "{{API_URL_V1}}/relations/{{relationId}}",
+							"host": [
+								"{{API_URL_V1}}"
+							],
+							"path": [
+								"relations",
+								"{{relationId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Types",
+			"item": [
+				{
+					"name": "Create Type",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var responseJSON = JSON.parse(responseBody);\r",
+									"\r",
+									"tests['Response contains \"type\" property'] = responseJSON.hasOwnProperty('type');\r",
+									"\r",
+									"var type = responseJSON.type || {};\r",
+									"\r",
+									"tests['type has \"id\" property'] = type.hasOwnProperty('id');\r",
+									"\r",
+									"if (tests['type has \"id\" property']) {\r",
+									"    pm.environment.set('typeId', type.id);\r",
+									"}\r",
+									"\r",
+									"tests['Global variable \"typeId\" has been set'] = pm.environment.get('typeId') === type.id;\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "workspaceId",
+								"value": "{{workspaceId}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "ApiKey {{apiKey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"type\": {\n        \"title\": \"Title\",\n        \"note\": \"\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{API_URL_V1}}/types",
+							"host": [
+								"{{API_URL_V1}}"
+							],
+							"path": [
+								"types"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Single Type",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "workspaceId",
+								"value": "{{workspaceId}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "ApiKey {{apiKey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{API_URL_V1}}/types/{{typeId}}",
+							"host": [
+								"{{API_URL_V1}}"
+							],
+							"path": [
+								"types",
+								"{{typeId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Types",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "workspaceId",
+								"value": "{{workspaceId}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "ApiKey {{apiKey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{API_URL_V1}}/types?pageNo=0&pageSize=10",
+							"host": [
+								"{{API_URL_V1}}"
+							],
+							"path": [
+								"types"
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "pageNo",
+									"value": "0"
+								},
+								{
+									"key": "pageSize",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Type",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "workspaceId",
+								"value": "{{workspaceId}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "ApiKey {{apiKey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"type\": {\n\t\t\"title\": \"Updated\",\n\t\t\"note\": \"3312\"\n\t}\n}"
+						},
+						"url": {
+							"raw": "{{API_URL_V1}}/types/{{typeId}}",
+							"host": [
+								"{{API_URL_V1}}"
+							],
+							"path": [
+								"types",
+								"{{typeId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Type Props",
+			"item": [
+				{
+					"name": "Add Type Prop",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var responseJSON = JSON.parse(responseBody);\r",
+									"\r",
+									"tests['Response contains \"typeProp\" typeProp'] = responseJSON.hasOwnProperty('typeProp');\r",
+									"\r",
+									"var typeProp = responseJSON.typeProp || {};\r",
+									"\r",
+									"tests['typeProp has \"id\" typeProp'] = typeProp.hasOwnProperty('id');\r",
+									"\r",
+									"if (tests['typeProp has \"id\" typeProp']) {\r",
+									"    pm.environment.set('typePropId', typeProp.id);\r",
+									"}\r",
+									"\r",
+									"tests['Global variable \"typePropId\" has been set'] = pm.environment.get('typePropId') === typeProp.id;\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "workspaceId",
+								"value": "{{workspaceId}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "ApiKey {{apiKey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"typeProp\": {\n        \"typeId\": \"{{typeId}}\",\n        \"propertyId\": \"{{propertyId}}\",\n        \"isRequired\": false\n    }\n}"
+						},
+						"url": {
+							"raw": "{{API_URL_V1}}/type-props",
+							"host": [
+								"{{API_URL_V1}}"
+							],
+							"path": [
+								"type-props"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Type Prop",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "workspaceId",
+								"value": "{{workspaceId}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "ApiKey {{apiKey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"typeProp\": {\n        \"propertyId\": \"{{propertyId}}\",\n        \"isRequired\": true\n    }\n}"
+						},
+						"url": {
+							"raw": "{{API_URL_V1}}/type-props/{{typePropId}}",
+							"host": [
+								"{{API_URL_V1}}"
+							],
+							"path": [
+								"type-props",
+								"{{typePropId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Type Links",
+			"item": [
+				{
+					"name": "Add Type Link",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var responseJSON = JSON.parse(responseBody);\r",
+									"\r",
+									"tests['Response contains \"typeLink\" typeLink'] = responseJSON.hasOwnProperty('typeLink');\r",
+									"\r",
+									"var typeLink = responseJSON.typeLink || {};\r",
+									"\r",
+									"tests['typeLink has \"id\" typeLink'] = typeLink.hasOwnProperty('id');\r",
+									"\r",
+									"if (tests['typeLink has \"id\" typeLink']) {\r",
+									"    pm.environment.set('typeLinkId', typeLink.id);\r",
+									"}\r",
+									"\r",
+									"tests['Global variable \"typeLinkId\" has been set'] = pm.environment.get('typeLinkId') === typeLink.id;\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "workspaceId",
+								"value": "{{workspaceId}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "ApiKey {{apiKey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"typeLink\": {\n        \"relationId\": \"{{relationId}}\",\n        \"type1Id\": \"{{typeId}}\",\n        \"type2Id\": \"{{typeId}}\",\n        \"isRequired1\": false,\n        \"isRequired2\": true\n    }\n}"
+						},
+						"url": {
+							"raw": "{{API_URL_V1}}/type-links",
+							"host": [
+								"{{API_URL_V1}}"
+							],
+							"path": [
+								"type-links"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Type Link",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "workspaceId",
+								"value": "{{workspaceId}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "ApiKey {{apiKey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"typeLink\": {\n        \"relationId\": \"{{relationId}}\",\n        \"type1Id\": \"{{typeId}}\",\n        \"type2Id\": \"{{typeId}}\",\n        \"isRequired1\": true,\n        \"isRequired2\": false\n    }\n}"
+						},
+						"url": {
+							"raw": "{{API_URL_V1}}/type-links/{{typeLinkId}}",
+							"host": [
+								"{{API_URL_V1}}"
+							],
+							"path": [
+								"type-links",
+								"{{typeLinkId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Items",
+			"item": [
+				{
+					"name": "Create Item",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var responseJSON = JSON.parse(responseBody);\r",
+									"\r",
+									"tests['Response contains \"item\" property'] = responseJSON.hasOwnProperty('item');\r",
+									"\r",
+									"var item = responseJSON.item || {};\r",
+									"\r",
+									"tests['item has \"id\" property'] = item.hasOwnProperty('id');\r",
+									"\r",
+									"if(tests['item has \"id\" property']){\r",
+									"    pm.environment.set('itemId', item.id);\r",
+									"}\r",
+									"\r",
+									"tests['Global variable \"itemId\" has been set'] = pm.environment.get('itemId') === item.id;\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "workspaceId",
+								"value": "{{workspaceId}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "ApiKey {{apiKey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"item\": {\n        \"title\": \"Google child2\",\n        \"note\": \"note\",\n        \"parentId\": null,\n        \"typeId\": \"{{typeId}}\",\n        \"isExpanded\": false\n    }\n}"
+						},
+						"url": {
+							"raw": "{{API_URL_V1}}/items",
+							"host": [
+								"{{API_URL_V1}}"
+							],
+							"path": [
+								"items"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Single Item",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "workspaceId",
+								"value": "{{workspaceId}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "ApiKey {{apiKey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{API_URL_V1}}/items/{{itemId}}",
+							"host": [
+								"{{API_URL_V1}}"
+							],
+							"path": [
+								"items",
+								"{{itemId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Items - Flat",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "workspaceId",
+								"value": "{{workspaceId}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "ApiKey {{apiKey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{API_URL_V1}}/items/flat?pageNo=0&pageSize=10",
+							"host": [
+								"{{API_URL_V1}}"
+							],
+							"path": [
+								"items",
+								"flat"
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": "title",
+									"disabled": true
+								},
+								{
+									"key": "pageNo",
+									"value": "0"
+								},
+								{
+									"key": "pageSize",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Item",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "workspaceId",
+								"value": "{{workspaceId}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "ApiKey {{apiKey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"item\": {\n\t\t\"title\": \"Title updated\",\n\t\t\"note\": \"note updated2\",\n\t\t\"parentId\": \"{{itemId}}\",\n\t\t\"typeId\": \"{{typeId}}\",\n\t\t\"isExpanded\": true\n\t}\n}"
+						},
+						"url": {
+							"raw": "{{API_URL_V1}}/items/{{itemId}}?debug={{debug}}",
+							"host": [
+								"{{API_URL_V1}}"
+							],
+							"path": [
+								"items",
+								"{{itemId}}"
+							],
+							"query": [
+								{
+									"key": "debug",
+									"value": "{{debug}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Values",
+			"item": [
+				{
+					"name": "Add Value",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var responseJSON = JSON.parse(responseBody);\r",
+									"\r",
+									"tests['Response contains \"value\" value'] = responseJSON.hasOwnProperty('value');\r",
+									"\r",
+									"var value = responseJSON.value || {};\r",
+									"\r",
+									"tests['value has \"id\" value'] = value.hasOwnProperty('id');\r",
+									"\r",
+									"if (tests['value has \"id\" value']) {\r",
+									"    pm.environment.set('valueId', value.id);\r",
+									"}\r",
+									"\r",
+									"tests['Global variable \"valueId\" has been set'] = pm.environment.get('valueId') === value.id;\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "workspaceId",
+								"value": "{{workspaceId}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "ApiKey {{apiKey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"value\": {\n        \"itemId\": \"{{itemId}}\",\n        \"propertyId\": \"{{propertyId}}\",\n        \"value\": \"first value\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{API_URL_V1}}/values",
+							"host": [
+								"{{API_URL_V1}}"
+							],
+							"path": [
+								"values"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Value",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "workspaceId",
+								"value": "{{workspaceId}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "ApiKey {{apiKey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"value\": {\n        \"propertyId\": \"{{propertyId}}\",\n        \"value\": \"updated value\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{API_URL_V1}}/values/{{valueId}}",
+							"host": [
+								"{{API_URL_V1}}"
+							],
+							"path": [
+								"values",
+								"{{valueId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Links",
+			"item": [
+				{
+					"name": "Add Link",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var responseJSON = JSON.parse(responseBody);\r",
+									"\r",
+									"tests['Response contains \"link\" property'] = responseJSON.hasOwnProperty('link');\r",
+									"\r",
+									"var link = responseJSON.link || {};\r",
+									"\r",
+									"tests['link has \"id\" property'] = link.hasOwnProperty('id');\r",
+									"\r",
+									"if(tests['link has \"id\" property']){\r",
+									"    pm.environment.set('linkId', link.id);\r",
+									"}\r",
+									"\r",
+									"tests['Global variable \"linkId\" has been set'] = pm.environment.get('linkId') === link.id;\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "workspaceId",
+								"value": "{{workspaceId}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "ApiKey {{apiKey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"link\": {\n        \"item1Id\": \"{{itemId}}\",\n        \"item2Id\": \"{{itemId}}\",\n        \"relationId\": \"{{relationId}}\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{API_URL_V1}}/links",
+							"host": [
+								"{{API_URL_V1}}"
+							],
+							"path": [
+								"links"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Link",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "workspaceId",
+								"value": "{{workspaceId}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "ApiKey {{apiKey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"link\": {\n        \"itemId\": \"{{itemId}}\",\n        \"item2Id\": \"{{itemId}}\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{API_URL_V1}}/links/{{linkId}}",
+							"host": [
+								"{{API_URL_V1}}"
+							],
+							"path": [
+								"links",
+								"{{linkId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "DELETES",
+			"item": [
+				{
+					"name": "Delete Link",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "workspaceId",
+								"value": "{{workspaceId}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "ApiKey {{apiKey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{API_URL_V1}}/links/{{linkId}}",
+							"host": [
+								"{{API_URL_V1}}"
+							],
+							"path": [
+								"links",
+								"{{linkId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Value",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "workspaceId",
+								"value": "{{workspaceId}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "ApiKey {{apiKey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{API_URL_V1}}/values/{{valueId}}",
+							"host": [
+								"{{API_URL_V1}}"
+							],
+							"path": [
+								"values",
+								"{{valueId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Type Prop",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "workspaceId",
+								"value": "{{workspaceId}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "ApiKey {{apiKey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{API_URL_V1}}/type-props/{{typePropId}}",
+							"host": [
+								"{{API_URL_V1}}"
+							],
+							"path": [
+								"type-props",
+								"{{typePropId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Type Link",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "workspaceId",
+								"value": "{{workspaceId}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "ApiKey {{apiKey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{API_URL_V1}}/type-links/{{typeLinkId}}",
+							"host": [
+								"{{API_URL_V1}}"
+							],
+							"path": [
+								"type-links",
+								"{{typeLinkId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Property",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "workspaceId",
+								"value": "{{workspaceId}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "ApiKey {{apiKey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{API_URL_V1}}/properties/{{propertyId}}",
+							"host": [
+								"{{API_URL_V1}}"
+							],
+							"path": [
+								"properties",
+								"{{propertyId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Relation",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "workspaceId",
+								"value": "{{workspaceId}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "ApiKey {{apiKey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{API_URL_V1}}/relations/{{relationId}}",
+							"host": [
+								"{{API_URL_V1}}"
+							],
+							"path": [
+								"relations",
+								"{{relationId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Item",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "workspaceId",
+								"value": "{{workspaceId}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "ApiKey {{apiKey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{API_URL_V1}}/items/{{itemId}}",
+							"host": [
+								"{{API_URL_V1}}"
+							],
+							"path": [
+								"items",
+								"{{itemId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Type",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "workspaceId",
+								"value": "{{workspaceId}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "ApiKey {{apiKey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{API_URL_V1}}/types/{{typeId}}",
+							"host": [
+								"{{API_URL_V1}}"
+							],
+							"path": [
+								"types",
+								"{{typeId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
