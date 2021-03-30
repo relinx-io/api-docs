@@ -106,4 +106,4 @@ All successful requests unless stated otherwise return status code `200 OK`.
 > For security reasons some APIs like manipulating Workspaces, Users, Members, API Keys, etc are not published.
 
 ## Support
-For any questions, problems related to the API access please open an issue in this repo or send an email to admin@relinx.io.
+For any questions, problems related to the API access please open an issue in this repo or send an email to support@relinx.io
